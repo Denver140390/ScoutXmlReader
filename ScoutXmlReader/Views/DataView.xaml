@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="ScoutXmlReader.Views.DataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="LayoutRoot">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Terminals}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Protocol}" Header="Protocol" />
+                <DataGridTextColumn Binding="{Binding SerialId}" Header="Serial ID" />
+                <DataGridTextColumn Binding="{Binding SimNumber}" Header="Sim Number" />
+                <DataGridTextColumn Binding="{Binding ConnectionTime}" Header="Connection Time" />
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding DataContext.SensorTypes, ElementName=LayoutRoot}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Width="70">
+                                                        <TextBlock Text="{Binding}" TextAlignment="Center" />
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding SensorValues}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="70">
+                                            <TextBlock Text="{Binding}" TextAlignment="Center" />
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
