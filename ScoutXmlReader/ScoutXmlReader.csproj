@@ -50,10 +50,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\XmlViewModel.cs" />
-    <Compile Include="Views\XmlView.xaml.cs">
-      <DependentUpon>XmlView.xaml</DependentUpon>
+    <Compile Include="Models\ScoutServer.cs" />
+    <Compile Include="Services\IDialogService.cs" />
+    <Compile Include="Services\OpenXmlFileDialogDialogService.cs" />
+    <Compile Include="ViewModels\ActionCommand.cs" />
+    <Compile Include="ViewModels\DataOverviewViewModel.cs" />
+    <Compile Include="ViewModels\TerminalViewModel.cs" />
+    <Compile Include="ViewModels\DataViewModel.cs" />
+    <Compile Include="Views\DataOverviewView.xaml.cs">
+      <DependentUpon>DataOverviewView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DataView.xaml.cs">
+      <DependentUpon>DataView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\DataOverviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,7 +77,6 @@
     </Compile>
     <Compile Include="Models\ScoutData.cs" />
     <Compile Include="Models\ScoutSensor.cs" />
-    <Compile Include="Models\ScoutServer.cs" />
     <Compile Include="Models\ScoutTerminal.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Services\XmlToScoutDataParser.cs" />
@@ -74,7 +86,7 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\XmlView.xaml">
+    <Page Include="Views\DataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

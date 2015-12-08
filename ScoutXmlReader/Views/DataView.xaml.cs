@@ -2,9 +2,9 @@
 
 namespace ScoutXmlReader.Views
 {
-    public partial class XmlView : UserControl
+    public partial class DataView : UserControl
     {
-        public XmlView()
+        public DataView()
         {
             InitializeComponent();
         }

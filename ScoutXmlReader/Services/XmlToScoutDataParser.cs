@@ -32,14 +32,19 @@ namespace ScoutXmlReader.Services
             data.BeginDate = ParseDateTime(xml.Root.Attribute("begindate")?.Value, DATA_DATETIME_FORMAT);
             data.EndDate = ParseDateTime(xml.Root.Attribute("enddate")?.Value, DATA_DATETIME_FORMAT);
 
-            data.Servers = xml
+            var server = xml
                 .Elements("data").Elements("server")
                 .Select(serverElement => new ScoutServer
                 {
-                    State = ParseBoolean(serverElement.Attribute("state")?.Value),
+                    State = serverElement.Attribute("state")?.Value,
                     UpTime = ParseTimeSpan(serverElement.Attribute("UpTime")?.Value)
                 })
                 .ToList();
+            if (server.Count != 0)
+            {
+                data.ServerState = server[0].State;
+                data.ServerUpTime = server[0].UpTime;
+            }
 
             data.Terminals = xml
                 .Elements("data").Elements("terminals").Elements("terminal")

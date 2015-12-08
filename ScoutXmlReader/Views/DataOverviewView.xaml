@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ScoutXmlReader.Views.DataOverviewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <GroupBox Header="Last Xml File Overview">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                       Text="{Binding BeginDate, StringFormat=Begin Date: {0}}"/>
+            <TextBlock/>
+
+            <TextBlock Grid.Column="0" Grid.Row="1"
+                       Text="{Binding EndDate, StringFormat=End Date: {0}}"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                       Text="{Binding ServerState, StringFormat=Server State: {0}}"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="1"
+                       Text="{Binding ServerUpTime, StringFormat=Server Up Time: {0}}"/>
+        </Grid>
+    </GroupBox>
+</UserControl>

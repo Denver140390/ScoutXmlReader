@@ -25,15 +25,8 @@ namespace ScoutXmlReaderTest
             {
                 BeginDate = new DateTime(2011, 12, 12, 18, 0, 23),
                 EndDate = new DateTime(2011, 12, 12, 20, 12, 24),
-
-                Servers = new List<ScoutServer>
-                {
-                    new ScoutServer
-                    {
-                        State = false,
-                        UpTime = new TimeSpan(0, 221, 17, 12)
-                    }
-                },
+                ServerState = "Off",
+                ServerUpTime = new TimeSpan(0, 221, 17, 12),
 
                 Terminals = new List<ScoutTerminal>
                 {

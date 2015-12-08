@@ -8,8 +8,8 @@ namespace ScoutXmlReader.Models
     {
         public DateTime? BeginDate;
         public DateTime? EndDate;
-
-        public List<ScoutServer> Servers;
+        public String ServerState;
+        public TimeSpan? ServerUpTime;
 
         public List<ScoutTerminal> Terminals;
 
@@ -27,18 +27,18 @@ namespace ScoutXmlReader.Models
 //                return true;
 //            if (BeginDate != other.BeginDate || EndDate != other.EndDate)
 //                return false;
-            if (!(BeginDate.Equals(other.BeginDate) && EndDate.Equals(other.EndDate)))
+            if (!(BeginDate.Equals(other.BeginDate) && EndDate.Equals(other.EndDate) && ServerUpTime.Equals(other.ServerUpTime)))
                 return false;
-            
-            if ((Servers == null && other.Servers != null) || (Servers != null && other.Servers == null))
+
+            if ((ServerState == null && other.ServerState != null) || (ServerState != null && other.ServerState == null))
                 return false;
-            for (int serverIndex = 0; serverIndex < Servers.Count - 1; serverIndex++)
-            {
-                if (!Servers[serverIndex].Equals(other.Servers[serverIndex]))
-                    return false;
-            }
+
+            if (!Equals(ServerState, other.ServerState))
+                return false;
             
             if ((Terminals == null && other.Terminals != null) || (Terminals != null && other.Terminals == null))
+                return false;
+            if (Terminals.Count != other.Terminals.Count)
                 return false;
             for (int terminalIndex = 0; terminalIndex < Terminals.Count - 1; terminalIndex++)
             {

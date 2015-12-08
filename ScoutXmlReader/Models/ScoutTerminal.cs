@@ -34,6 +34,8 @@ namespace ScoutXmlReader.Models
             
             if ((Sensors == null && other.Sensors != null) || (Sensors != null && other.Sensors == null))
                 return false;
+            if (Sensors.Count != other.Sensors.Count)
+                return false;
             for (int sensorIndex = 0; sensorIndex < Sensors.Count - 1; sensorIndex++)
             {
                 if (!(Sensors[sensorIndex].Equals(other.Sensors[sensorIndex])))
